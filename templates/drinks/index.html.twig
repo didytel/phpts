@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DrinksController!{% endblock %}
+
+{% block body %}
+<h1>Drinks! <small>#withUs</small></h1>
+<div class="row">
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    {% for row in list %}
+        <tr>
+            <td>{{row.id}}</td>
+            <td>{{row.name}}</td>
+            <td>{{row.description}}</td>
+        </tr>
+    {% else %}
+        <tr class="error"><td>List is empty!</td><td><td></tr>
+    {% endfor %}
+    </table>
+</div>
+<div class="row">
+    <a href="{{ url("adddrink") }}">Add a drink</a>
+</div>
+{% endblock %}
